@@ -1,0 +1,73 @@
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/images/banner.webp");
+  background-size: cover;
+  background-attachment: fixed; /* Add this line */
+  background-position: center; /* Add this line */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+
+  opacity: 0.8;
+
+}
+
+.hero__info {
+  max-width: 90%;
+  width: auto;
+  margin-top: 7rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  color: #440018;
+  padding: 1rem;
+  line-height: 1.5;
+  font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1600 - 300)));
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards 1s;
+}
+
+.hero__info p {
+  width: 70%;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #440018;
+  opacity: 0;
+  animation: slideIn 1.5s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .hero__info {
+    margin-top: 10rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

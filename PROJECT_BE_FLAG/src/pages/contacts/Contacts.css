@@ -1,0 +1,52 @@
+.contacts {
+  margin-top: 35px;
+}
+
+.contacts__info {
+  flex-basis: 35%;
+
+  margin-bottom: 120px;
+}
+
+.contacts__info p {
+  margin-bottom: 50px;
+}
+
+.contacts__info-social_a button {
+  text-decoration: none;
+  font-size: 30px;
+  color: #440018;
+  display: inline-block;
+  transition: transform 0.5s;
+
+  background: none;
+}
+
+.contacts__info-social_a button:hover {
+  transform: translateY(-5px);
+
+  cursor: pointer;
+}
+
+.contacts__geolocation-map {
+  margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+  .contacts__info {
+    display: block;
+    align-items: center;
+    flex-basis: 100%;
+  }
+
+  .contacts__geolocation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    margin-top: 20px;
+  }
+}
