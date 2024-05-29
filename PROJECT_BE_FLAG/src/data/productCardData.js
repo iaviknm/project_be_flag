@@ -9,7 +9,7 @@ const productCardData = {
       id: 1,
       image: las,
       name: "Lãs",
-      description: "Lãs - 170m - 100g",
+      description: "170m - 100g",
       price: 6.4 + " €",
     },
 
@@ -18,14 +18,14 @@ const productCardData = {
       image: tecidos,
       name: "Tecidos",
       description: "Tecido ao metro",
-      price: 19.90 + " €/m",
+      price: 19.9 + " €/m",
     },
 
     {
       id: 3,
       image: linhas,
       name: "Linhas Amigurumi",
-      description: "Linhas Amigurumi \n254m \n125g",
+      description: "254m - 125g",
       price: 6.4 + " €",
     },
 
@@ -37,6 +37,8 @@ const productCardData = {
       price: 12 + " €",
     },
   ],
+
+  button: "Comprar Agora",
 };
 
 export default productCardData;

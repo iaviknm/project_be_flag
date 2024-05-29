@@ -1,5 +1,5 @@
 const productsData = {
-  title: "Loja"
+  title: "Os nossos produtos"
 }
 
 export default productsData

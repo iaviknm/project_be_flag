@@ -1,5 +1,8 @@
+import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import productCardData from "../../data/productCardData";
 import "./ProductCard.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProductCard = () => {
   return (
@@ -13,6 +16,13 @@ const ProductCard = () => {
                 <h5>{card.name}</h5>
                 <p>{card.description}</p>
                 <h6>{card.price}</h6>
+                <button className="card__article-btn">
+                  <a href="" className="card__article-btn_a">
+                    <span>
+                      <FontAwesomeIcon fixedWidth icon={faShoppingBasket} />
+                    </span>
+                  </a>
+                </button>
               </article>
             );
           })}
