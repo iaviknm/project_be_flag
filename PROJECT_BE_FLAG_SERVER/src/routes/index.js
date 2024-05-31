@@ -8,7 +8,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 router.get("/", appController.root);
 
 //! products routes
-router.post("/products", productController.create);
+router.post("/products/create", productController.create);
 router.get("/products", productController.getAll);
 router.get("/products/:id", productController.getById);
 router.put("/products/:id", productController.update);

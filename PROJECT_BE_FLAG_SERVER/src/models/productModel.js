@@ -1,15 +1,16 @@
 const db = require("../db/connection");
 
 async function createProduct(data) {
+  const { image, name, description, price, inStock, perMeter } = data;
   const [result] = await db.execute(
     "INSERT INTO products (image, name, description, price, inStock, perMeter) VALUES (?, ?, ?, ?, ?, ?)",
     [
-      data.image,
-      data.name,
-      data.description,
-      data.price,
-      data.inStock,
-      data.perMeter,
+      image,
+      name,
+      description || null,
+      price,
+      inStock !== undefined ? inStock : null,
+      perMeter !== undefined ? perMeter : null,
     ]
   );
   return result.insertId;
@@ -26,15 +27,23 @@ async function findProductById(id) {
 }
 
 async function updateProduct(id, data) {
+  const { image, name, description, price, inStock, perMeter } = data;
   const [result] = await db.execute(
     "UPDATE products SET image = ?, name = ?, description = ?, price = ?, inStock = ?, perMeter = ? WHERE id = ?",
-    [data.image, data.name, data.description, data.price, data.inStock, id]
+    [
+      image,
+      name,
+      description || null,
+      price,
+      inStock !== undefined ? inStock : null,
+      perMeter !== undefined ? perMeter : null,
+    ]
   );
   return result.affectedRows;
 }
 
 async function deleteProduct(id) {
-  const [result] = await db.execute('DELETE FROM products WHERE id = ?', [id]);
+  const [result] = await db.execute("DELETE FROM products WHERE id = ?", [id]);
   return result.affectedRows;
 }
 
@@ -43,5 +52,5 @@ module.exports = {
   findAllProducts,
   findProductById,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 };
