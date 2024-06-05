@@ -17,7 +17,7 @@ const LoginForm = () => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>{authData.emailLabel}</label>
+          <label>{authData.loginLabel}</label>
           <input
             type="email"
             value={email}

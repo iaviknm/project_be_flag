@@ -25,6 +25,7 @@ const RegisterForm = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
+
         <div>
           <label>{authData.emailLabel}</label>
           <input
@@ -33,6 +34,7 @@ const RegisterForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+
         <div>
           <label>{authData.passwordLabel}</label>
           <input

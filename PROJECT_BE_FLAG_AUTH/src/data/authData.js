@@ -6,6 +6,8 @@ const authData = {
   emailLabel: "Email:",
   passwordLabel: "Password:",
 
+  loginLabel: "Username or Email:",
+
   registerBtn: "Register",
   loginBtn: "Login",
 };
