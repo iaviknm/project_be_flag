@@ -21,23 +21,23 @@ async function findAllProducts() {
 }
 
 async function findProductById(id) {
-  const [rows] = await db.promise.query("SELECT * FROM products WHERE id = ?", [
+  const [rows] = await db.promise().query("SELECT * FROM products WHERE id = ?", [
     id,
   ]);
   return rows[0];
 }
 
 async function updateProduct(id, data) {
-  const { image, name, description, price, inStock, perMeter } = data;
-  const [result] = await db.promise.query(
+  const { image, name, description, price, inStock, perMeter} = data;
+  const [result] = await db.promise().query(
     "UPDATE products SET image = ?, name = ?, description = ?, price = ?, inStock = ?, perMeter = ? WHERE id = ?",
-    [image, name, description, price, inStock, perMeter]
+    [image, name, description, price, inStock, perMeter, id]
   );
   return result.affectedRows;
 }
 
 async function deleteProduct(id) {
-  const [result] = await db.promise.query("DELETE FROM products WHERE id = ?", [
+  const [result] = await db.promise().query("DELETE FROM products WHERE id = ?", [
     id,
   ]);
   return result.affectedRows;
