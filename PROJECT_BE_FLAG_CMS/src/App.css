@@ -6,20 +6,17 @@
 }
 
 body {
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", serif !important;
 }
 
 .App {
   height: 100vh;
   background-color: #f0f0f0;
-
-  background-image: url("./assets/images/banner.webp");
-  background-size: cover;
 }
 
 .auth-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 230px;
+  margin-top: 50px;
 }

@@ -53,7 +53,7 @@ const ProductCard = () => {
             <img src={card.image} alt="product" />
             <h5>{card.name}</h5>
             <p>{card.description}</p>
-            <h6>{card.price}</h6>
+            <h6>{card.price} €</h6>
             <button className="card__article-btn">
               <a href="" className="card__article-btn_a">
                 <span>

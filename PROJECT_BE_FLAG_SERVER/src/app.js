@@ -6,11 +6,12 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
+app.use(cors());
+
 app.use(bodyParser.json());
 
-const productRoutes = require('./routes/index');
-app.use('/', productRoutes);
-
+const productRoutes = require("./routes/index");
+app.use("/", productRoutes);
 
 app.get("/", (req, res) => {
   console.log("[GET ROUTE]");

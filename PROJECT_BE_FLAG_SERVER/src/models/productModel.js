@@ -28,13 +28,15 @@ async function findProductById(id) {
 }
 
 async function updateProduct(id, data) {
+  console.log("bom dia")
   const { image, name, description, price, inStock } = data;
   const [result] = await db
     .promise()
     .query(
-      "UPDATE products SET image = ?, name = ?, description = ?, price = ?, inStock = ?, WHERE id = ?",
+      "UPDATE products SET image = ?, name = ?, description = ?, price = ?, inStock = ? WHERE id = ?",
       [image, name, description, price, inStock, id]
     );
+    console.log(result)
   return result.affectedRows;
 }
 

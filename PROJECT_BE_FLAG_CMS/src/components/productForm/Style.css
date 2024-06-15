@@ -1,0 +1,23 @@
+.form__title,
+label {
+  color: #440018;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #440018 !important;
+  font-weight: bold;
+  border: none !important;
+  color: #f5f5f5 !important;
+
+  margin: 0 3px;
+}
+
+/* Table */
+.table__th {
+  color: #440018 !important;
+}
+
+input, textarea {
+  border: 1px solid #440018 !important
+}
