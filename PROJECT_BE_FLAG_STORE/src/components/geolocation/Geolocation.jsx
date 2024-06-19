@@ -3,7 +3,7 @@ import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
 
 import pinIcon from "../../assets/images/google-maps-pin.svg";
 
-import "../../pages/contacts/Contacts.css"
+import "../../sections/contacts/Contacts.css"
 
 const containerStyle = {
   width: "350px",

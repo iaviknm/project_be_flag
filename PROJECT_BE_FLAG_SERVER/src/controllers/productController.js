@@ -4,7 +4,7 @@ const {
   findProductById,
   updateProduct,
   deleteProduct,
-} = require("../models/productModel");
+} = require("../db/productDB");
 
 async function create(req, res) {
   try {
@@ -37,10 +37,10 @@ async function getById(req, res) {
 }
 
 async function update(req, res) {
-  console.log("first")
+  console.log("first");
   try {
     const affectedRows = await updateProduct(req.params.id, req.body);
-    console.log(affectedRows)
+    console.log(affectedRows);
     if (affectedRows === 0) {
       return res.status(404).json({ error: "Product not found" });
     }

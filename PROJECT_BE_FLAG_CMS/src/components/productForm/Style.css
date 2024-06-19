@@ -13,11 +13,56 @@ label {
   margin: 0 3px;
 }
 
-/* Table */
+/* ! Table */
 .table__th {
   color: #440018 !important;
 }
 
-input, textarea {
-  border: 1px solid #440018 !important
+input,
+textarea {
+  border: 1px solid #440018 !important;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .form__title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .table td,
+  .table th {
+    white-space: nowrap;
+  }
+
+  .table thead {
+    display: table-header-group;
+  }
+
+  .table tbody tr {
+    display: table-row;
+  }
+
+  .table tbody td {
+    display: table-cell;
+  }
+
+  .btn-sm {
+    width: 45%;
+    margin-bottom: 5px;
+  }
 }

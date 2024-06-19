@@ -1,4 +1,4 @@
-const db = require("../db/connection");
+const db = require("./connection");
 
 async function createProduct(data) {
   try {
@@ -28,7 +28,7 @@ async function findProductById(id) {
 }
 
 async function updateProduct(id, data) {
-  console.log("bom dia")
+  console.log("bom dia");
   const { image, name, description, price, inStock } = data;
   const [result] = await db
     .promise()
@@ -36,7 +36,7 @@ async function updateProduct(id, data) {
       "UPDATE products SET image = ?, name = ?, description = ?, price = ?, inStock = ? WHERE id = ?",
       [image, name, description, price, inStock, id]
     );
-    console.log(result)
+  console.log(result);
   return result.affectedRows;
 }
 

@@ -15,12 +15,6 @@ const ProductCard = () => {
         console.log("Attempting to fetch data...");
         const response = await fetch("http://localhost:3000/products");
 
-        // if (!response.ok) {
-        //   throw new Error(
-        //     `Failed to fetch product data: ${response.statusText}`
-        //   );
-        // }
-
         const data = await response.json();
         console.log("Data fetched successfully:", data);
 
