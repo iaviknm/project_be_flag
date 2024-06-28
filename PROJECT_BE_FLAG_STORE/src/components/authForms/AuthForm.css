@@ -1,10 +1,8 @@
-/* src/components/Auth.css */
-
 .auth-form {
   border: 1px solid #ccc;
   padding: 40px;
   margin: 10px;
-  width: 300px;
+  width: 400px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -22,7 +20,12 @@
   text-align: center;
   margin-bottom: 20px;
   color: #440018;
-  margin-top: 0; /* Ensures h2 starts at the same level */
+  margin-top: 0;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
 }
 
 .auth-form div {
@@ -61,21 +64,18 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease-in-out;
-  margin-top: auto; /* Ensures button is aligned at the bottom */
+  margin-top: auto;
 }
 
+/* Button hover effect */
 .auth-form button:hover {
   background-color: lightblue;
+  color: black;
 }
 
-
-.login-form div {
-  margin-bottom: 30px; 
-}
-
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .auth-container {
+  .auth-page {
     flex-direction: column;
     align-items: center;
   }

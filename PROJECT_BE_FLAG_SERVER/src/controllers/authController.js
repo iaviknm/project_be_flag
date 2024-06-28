@@ -54,6 +54,8 @@ const postLogin = async (req, res) => {
     status: "ok",
     message: "User logged in",
     token,
+    username: result.username,
+    email: result.email,
   });
 };
 

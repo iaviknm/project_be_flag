@@ -7,13 +7,13 @@ import Products from "../sections/products/Products";
 
 const Store = () => {
   return (
-    <body>
+    <div>
       <Hero />
       <About />
       <Products />
       <Contacts />
       <Footer />
-    </body>
+    </div>
   );
 };
 

@@ -7,6 +7,8 @@ const {
 } = require("../db/productDB");
 
 async function create(req, res) {
+  req.body.image = req.file.filename;
+  console.log(req.body);
   try {
     const productId = await createProduct(req.body);
     res.status(201).json({ id: productId, ...req.body });

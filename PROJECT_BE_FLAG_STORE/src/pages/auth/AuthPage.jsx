@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "../../components/authForms/LoginForm";
 import RegisterForm from "../../components/authForms/RegisterForm";
 
-import "./Auth.css";
+import "./AuthPage.css";
 import Header from "../../components/header/Header";
 
 const AuthPage = ({ onLoginSuccess }) => {

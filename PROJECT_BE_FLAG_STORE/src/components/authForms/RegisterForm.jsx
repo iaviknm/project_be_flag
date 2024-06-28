@@ -1,6 +1,6 @@
 import { useState } from "react";
 import authData from "../../data/authData";
-import "../../pages/auth/Auth.css";
+import "./AuthForm.css";
 import authService from "../../services/authService";
 
 const RegisterForm = () => {

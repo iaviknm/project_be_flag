@@ -1,0 +1,51 @@
+.logout__card {
+  position: fixed;
+  top: 80px; /* Adjust based on your navbar height */
+  right: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 250px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start */
+}
+
+.logout__card h4 {
+  color: #440018;
+  margin-bottom: 10px; /* Add margin to separate from the next element */
+  align-self: center;
+}
+
+.logout__card p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #333;
+  align-self: stretch; /* Ensure paragraphs take full width */
+}
+
+.logout__card strong {
+  color: #440018;
+  display: block; /* Make strong elements block-level */
+  margin-bottom: 10px; /* Add margin to separate from the next element */
+}
+
+.logout__card button {
+  align-self: center; /* Center align the button */
+  padding: 7px 12px;
+  border: none;
+  background-color: #440018;
+  color: #f5f5f5;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.logout__card button:hover {
+  background-color: lightblue;
+  color: black;
+}

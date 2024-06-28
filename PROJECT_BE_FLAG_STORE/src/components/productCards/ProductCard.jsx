@@ -4,7 +4,7 @@ import "./ProductCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 
-const ProductCard = () => {
+const ProductCard = ({ product, addProduct }) => {
   const [productCardData, setProductCardData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,12 +44,16 @@ const ProductCard = () => {
       <div className="card">
         {productCardData.map((card, index) => (
           <article key={index} className="card__article">
-            <img src={card.image} alt="product" />
+            <img src={"http://localhost:3000/" + card.image} alt="product" />
             <h5>{card.name}</h5>
             <p>{card.description}</p>
             <h6>{card.price} €</h6>
             <button className="card__article-btn">
-              <a href="" className="card__article-btn_a">
+              <a
+                href=""
+                className="card__article-btn_a"
+                onClick={() => addProduct(product)}
+              >
                 <span>
                   <FontAwesomeIcon fixedWidth icon={faShoppingBasket} />
                 </span>

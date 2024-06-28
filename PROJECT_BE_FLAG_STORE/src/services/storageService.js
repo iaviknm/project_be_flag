@@ -1,17 +1,29 @@
-function getAuthToken() {
-  return localStorage.getItem("at");
-}
+const getAuthToken = () => localStorage.getItem("at");
 
-function setAuthToken(token) {
-  localStorage.setItem("at", token);
-}
+const setAuthToken = (token) => localStorage.setItem("at", token);
 
-function removeAuthToken() {
-  localStorage.removeItem("at");
-}
+const removeAuthToken = () => localStorage.removeItem("at");
+
+const setUsername = (username) => localStorage.setItem("user", username);
+
+const getUsername = () => localStorage.getItem("user");
+
+const getEmail = () => localStorage.getItem("email");
+
+const setEmail = (email) => localStorage.setItem("email", email);
+
+const clearUserData = () => {
+  localStorage.removeItem("user");
+  localStorage.removeItem("email");
+};
 
 export default {
   getAuthToken,
   setAuthToken,
   removeAuthToken,
+  setUsername,
+  getUsername,
+  getEmail,
+  setEmail,
+  clearUserData,
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../pages/auth/Auth.css";
+import "./AuthForm.css";
 import authData from "../../data/authData";
 import authService from "../../services/authService";
 import storageService from "../../services/storageService";
@@ -15,6 +15,8 @@ const LoginForm = ({ onLoginSuccess }) => {
 
     if (result.token) {
       storageService.setAuthToken(result.token);
+      storageService.setUsername(result.username);
+      storageService.setEmail(result.email);
       onLoginSuccess();
     }
   }

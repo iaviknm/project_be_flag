@@ -3,8 +3,8 @@
   width: 100vw;
   background-image: url("../../assets/images/banner.webp");
   background-size: cover;
-  background-attachment: fixed; /* Add this line */
-  background-position: center; /* Add this line */
+  background-attachment: fixed; 
+  background-position: center; 
   top: 0;
   left: 0;
   bottom: 0;
@@ -12,15 +12,12 @@
   z-index: -1;
 
   opacity: 0.8;
-
 }
 
 .hero__info {
   max-width: 90%;
   width: auto;
-  margin-top: 7rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin: 7rem 3rem 3rem 3rem;
   color: #440018;
   padding: 1rem;
   line-height: 1.5;

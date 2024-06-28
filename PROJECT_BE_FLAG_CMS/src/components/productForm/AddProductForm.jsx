@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useLocation } from "wouter";
 import "./Style.css";
 
@@ -13,25 +13,43 @@ const AddProduct = () => {
     inStock: 1,
   });
 
+  const imageRef = useRef(null);
+
   const [location, setLocation] = useLocation();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProduct({
-      ...product,
-      [name]: name === "inStock" ? Number(value) : value,
-    });
+
+    if (name === "price") {
+      // Allow only valid numeric values and decimal points
+      const numericValue = value.replace(/[^0-9.]/g, "");
+      setProduct({
+        ...product,
+        [name]: numericValue,
+      });
+    } else {
+      setProduct({
+        ...product,
+        [name]: name === "inStock" ? Number(value) : value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(imageRef.current.files);
+    const formData = new FormData();
+
+    formData.append("image", imageRef.current.files[0]);
+    formData.append("name", product.name);
+    formData.append("description", product.description);
+    formData.append("price", product.price);
+    formData.append("inStock", product.inStock);
+
     try {
       await fetch("http://localhost:3000/products/create", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json", // multipart form data
-        },
-        body: JSON.stringify(product),
+        body: formData,
       });
       setLocation("/");
     } catch (error) {
@@ -50,7 +68,7 @@ const AddProduct = () => {
           type="file"
           className="form-control"
           name="image"
-          value={product.image}
+          ref={imageRef}
           onChange={handleChange}
           placeholder="Imagem"
           required
@@ -89,7 +107,6 @@ const AddProduct = () => {
           onChange={handleChange}
           placeholder="Preço"
           required
-          min="0"
         />
       </div>
       <div className="mb-4">
