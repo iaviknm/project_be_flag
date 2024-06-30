@@ -1,0 +1,107 @@
+/* Shopping Cart Container */
+.cart {
+  position: fixed;
+  top: 90px; /* Adjust based on your navbar height */
+  right: 180px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 300px; /* Increased width for better layout */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Ensure buttons and text span full width */
+}
+
+/* Header Styling */
+.cart h4 {
+  color: #440018;
+  margin-bottom: 15px; /* Increased margin for better spacing */
+  text-align: center; /* Centered text */
+}
+
+/* Item Container */
+.cart div > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Item Name and Price */
+.cart div > div > span {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+/* Button Styling */
+.cart button {
+  padding: 7px 12px;
+  border: none;
+  background-color: #440018;
+  color: #f5f5f5;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px;
+}
+
+/* Hover Effects */
+.cart button:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+/* Quantity Buttons */
+.cart div > div > button {
+  margin: 0 5px;
+  background-color: #440018;
+  color: #f5f5f5;
+}
+
+.cart div > div > button:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+/* Remove Button */
+.cart div > div > button:last-child {
+  background-color: red;
+  color: white;
+}
+
+.cart div > div > button:last-child:hover {
+  background-color: darkred;
+}
+
+/* Total Price Styling */
+.cart h3 {
+  color: #440018;
+  text-align: center; /* Centered text */
+  margin-top: 15px; /* Increased margin for better spacing */
+  margin-bottom: 15px;
+}
+
+/* Checkout Button */
+.cart button.checkout {
+  background-color: green;
+  color: white;
+}
+
+.cart button.checkout:hover {
+  background-color: darkgreen;
+}
+
+/* Login Card */
+.login__card {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login__card p {
+  margin-bottom: 10px;
+  color: #333;
+}

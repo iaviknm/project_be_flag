@@ -60,6 +60,20 @@
   background: transparent;
 }
 
+.cart-item-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: white;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 20px 20px;

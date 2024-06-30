@@ -11,13 +11,19 @@ const LoginForm = ({ onLoginSuccess }) => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const result = await authService.loginUser(email, password);
+    try {
+      const result = await authService.loginUser(email, password);
 
-    if (result.token) {
-      storageService.setAuthToken(result.token);
-      storageService.setUsername(result.username);
-      storageService.setEmail(result.email);
-      onLoginSuccess();
+      if (result.token) {
+        storageService.setAuthToken(result.token);
+        storageService.setUsername(result.username);
+        storageService.setEmail(result.email);
+        onLoginSuccess();
+      } else {
+        alert("Login failed. Please check your email and password.");
+      }
+    } catch (error) {
+      alert("Login failed. Please check your email and password.");
     }
   }
 
@@ -26,11 +32,12 @@ const LoginForm = ({ onLoginSuccess }) => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>{authData.loginLabel}</label>
+          <label>{authData.emailLabel}</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div>
@@ -39,6 +46,7 @@ const LoginForm = ({ onLoginSuccess }) => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <button type="submit">Login</button>

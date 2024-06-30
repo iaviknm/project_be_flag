@@ -4,7 +4,7 @@ import "./ProductCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 
-const ProductCard = ({ product, addProduct }) => {
+const ProductCard = ({ product }) => {
   const [productCardData, setProductCardData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -39,6 +39,21 @@ const ProductCard = ({ product, addProduct }) => {
     return <div>Error: {error}</div>;
   }
 
+  const addProduct = (product) => {
+    const arrayProducts =
+      JSON.parse(localStorage.getItem("arrayProducts")) || [];
+
+    const productInfo = {
+      product,
+      quantity: 1,
+    };
+
+    console.log(productInfo);
+
+    arrayProducts.push(productInfo);
+    localStorage.setItem("arrayProducts", JSON.stringify(arrayProducts));
+  };
+
   return (
     <div className="container">
       <div className="card">
@@ -48,16 +63,13 @@ const ProductCard = ({ product, addProduct }) => {
             <h5>{card.name}</h5>
             <p>{card.description}</p>
             <h6>{card.price} €</h6>
-            <button className="card__article-btn">
-              <a
-                href=""
-                className="card__article-btn_a"
-                onClick={() => addProduct(product)}
-              >
-                <span>
-                  <FontAwesomeIcon fixedWidth icon={faShoppingBasket} />
-                </span>
-              </a>
+            <button
+              className="card__article-btn"
+              onClick={() => addProduct(card)}
+            >
+              <span>
+                <FontAwesomeIcon fixedWidth icon={faShoppingBasket} />
+              </span>
             </button>
           </article>
         ))}

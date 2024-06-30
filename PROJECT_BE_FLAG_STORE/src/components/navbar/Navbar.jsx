@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -12,24 +12,54 @@ import navbarData from "../../data/navbarData";
 import "./Navbar.css";
 import storageService from "../../services/storageService";
 import AuthCards from "../authCards/AuthCards";
+import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCardVisible, setIsCardVisible] = useState(false);
+  const [isCartVisible, setIsCartVisible] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!storageService.getUsername());
   const [, navigate] = useLocation();
+  const [cart, setCart] = useState([]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleLogout = () => {
-    // Clear user data from storageService
     storageService.clearUserData();
-
-    // Redirect to login page or home page
+    clearCart(); // Clear the cart when logging out
     window.location.href = "/store";
+  };
 
-    console.log("Logged out");
+  const handleLogin = () => {
+    window.location.href = "/auth";
+  };
+
+  const updateQuantity = (productId, newQuantity) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.product.id === productId
+          ? { ...item, quantity: newQuantity }
+          : item
+      )
+    );
+  };
+
+  const removeFromCart = (productId) => {
+    setCart((prevCart) =>
+      prevCart.filter((item) => item.product.id !== productId)
+    );
+  };
+
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("arrayProducts");
+  };
+
+  const checkout = () => {
+    alert("Your order has been successful!");
+    clearCart();
   };
 
   return (
@@ -43,14 +73,12 @@ const Navbar = () => {
             className="logo"
           />
         </a>
-
         <div
           className={`navbar__toggle ${isMenuOpen ? "open" : ""}`}
           onClick={toggleMenu}
         >
           <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
         </div>
-
         <div
           className={`navbar__menu ${isMenuOpen ? "navbar__menu--open" : ""}`}
         >
@@ -61,11 +89,13 @@ const Navbar = () => {
               </li>
             ))}
             <li className="navbar__ul-li">
-              <a href="#">
+              <a
+                onClick={() => setIsCartVisible(!isCartVisible)}
+                style={{ cursor: "pointer" }}
+              >
                 <FontAwesomeIcon icon={faShoppingCart} />
               </a>
             </li>
-
             <li className="navbar__ul-li">
               <a
                 onClick={() => setIsCardVisible(!isCardVisible)}
@@ -86,6 +116,17 @@ const Navbar = () => {
           username={storageService.getUsername()}
           email={storageService.getEmail()}
           onLogout={handleLogout}
+        />
+      )}
+      {isCartVisible && (
+        <ShoppingCart
+          cart={cart}
+          updateQuantity={updateQuantity}
+          removeFromCart={removeFromCart}
+          clearCart={clearCart}
+          checkout={checkout}
+          isLoggedIn={isLoggedIn}
+          handleLogin={handleLogin}
         />
       )}
     </header>
