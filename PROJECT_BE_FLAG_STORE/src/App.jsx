@@ -7,7 +7,6 @@ import Store from "./pages/Store";
 function App() {
   const [location, setLocation] = useLocation();
 
-  // Redirect to store homepage on successful login
   const handleLoginSuccess = () => {
     setLocation("/store");
   };

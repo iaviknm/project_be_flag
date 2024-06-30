@@ -67,12 +67,12 @@
 @media only screen and (max-width: 768px) {
   .card {
     display: block;
-    text-align: center; /* Center the content horizontally */
+    text-align: center; 
   }
 
   .card__article {
-    display: inline-block; /* Display cards as inline blocks */
-    vertical-align: top; /* Align cards to the top */
-    margin: 20px 0; /* Adjust margin to create space between cards */
+    display: inline-block; 
+    vertical-align: top; 
+    margin: 20px 0; 
   }
 }

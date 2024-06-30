@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./ShoppingCart.css";
 
 const ShoppingCart = ({
-  removeFromCart,
+  cart,
+  clearCart,
   isLoggedIn,
   handleLogin,
-  clearCart,
+  updateQuantity,
+  removeFromCart,
 }) => {
   const [cartInfo, setCartInfo] = useState(() => {
     const savedCartInfo =
@@ -37,6 +39,12 @@ const ShoppingCart = ({
     removeFromCart(id);
   };
 
+  const handleClearCart = () => {
+    setCartInfo([]);
+    localStorage.removeItem("arrayProducts");
+    clearCart();
+  };
+
   const handleUserLogin = () => {
     if (!isLoggedIn) {
       const savedCartInfo =
@@ -45,7 +53,7 @@ const ShoppingCart = ({
     } else {
       setCartInfo([]);
       localStorage.removeItem("arrayProducts");
-      clearCart(); // Clear the cart when logging out or switching accounts
+      clearCart();
     }
     handleLogin();
   };
@@ -74,18 +82,15 @@ const ShoppingCart = ({
                 <span>
                   {item.product.name} - {item.product.price} €
                 </span>
-                <button
-                  onClick={() => handleRemoveFromCart(item.product.id)}
-                  className="remove-button"
-                >
-                  <i className="fas fa-trash-alt"></i>
-                </button>
               </div>
             ))}
           </div>
           <h3>Total: {getTotalPrice().toFixed(2)} €</h3>
           <button onClick={handleCheckout} className="checkout">
             Pagamento à cobrança
+          </button>
+          <button onClick={handleClearCart} className="delete-all-button">
+            Apagar Todos os Itens
           </button>
         </>
       ) : (

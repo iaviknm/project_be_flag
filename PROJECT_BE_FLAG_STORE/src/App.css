@@ -30,7 +30,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* se os elementos fores > que o container pai, partir em várias linhas */
+  flex-wrap: wrap; 
 }
 
 .title {

@@ -28,7 +28,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     storageService.clearUserData();
-    clearCart(); // Clear the cart when logging out
+    clearCart(); 
     window.location.href = "/store";
   };
 
@@ -55,11 +55,6 @@ const Navbar = () => {
   const clearCart = () => {
     setCart([]);
     localStorage.removeItem("arrayProducts");
-  };
-
-  const checkout = () => {
-    alert("Your order has been successful!");
-    clearCart();
   };
 
   return (
@@ -124,7 +119,6 @@ const Navbar = () => {
           updateQuantity={updateQuantity}
           removeFromCart={removeFromCart}
           clearCart={clearCart}
-          checkout={checkout}
           isLoggedIn={isLoggedIn}
           handleLogin={handleLogin}
         />

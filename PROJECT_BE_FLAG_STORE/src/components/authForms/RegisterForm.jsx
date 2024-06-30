@@ -14,9 +14,9 @@ const RegisterForm = () => {
     const result = await authService.registerUser(username, email, password);
 
     if (result.status === "OK") {
-      alert("Working");
+      alert("Conta criada com sucesso");
     } else {
-      alert("Not working...");
+      alert("Erro! A conta não foi criada");
     }
   };
 

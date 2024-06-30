@@ -1,6 +1,4 @@
 import "./App.css";
-// import RegisterForm from "./components/RegisterForm";
-// import LoginForm from "./components/LoginForm";
 import Header from "./components/header/Header";
 
 import AddProductForm from "./components/productForm/AddProductForm";

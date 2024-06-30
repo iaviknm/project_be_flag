@@ -7,7 +7,7 @@ import { tableData } from "../../data/data";
 
 const ProductsTable = () => {
   const [products, setProducts] = useState([]);
-  const [location, setLocation] = useLocation(); // Use useLocation for navigation
+  const [location, setLocation] = useLocation(); 
 
   const fetchProducts = async () => {
     try {
@@ -35,7 +35,7 @@ const ProductsTable = () => {
   };
 
   const handleAddProductClick = () => {
-    setLocation("/add"); // Navigate to the add product form
+    setLocation("/add"); 
   };
 
   return (

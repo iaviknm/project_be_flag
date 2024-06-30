@@ -21,7 +21,6 @@ const AddProduct = () => {
     const { name, value } = e.target;
 
     if (name === "price") {
-      // Allow only valid numeric values and decimal points
       const numericValue = value.replace(/[^0-9.]/g, "");
       setProduct({
         ...product,

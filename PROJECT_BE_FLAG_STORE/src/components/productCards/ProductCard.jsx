@@ -4,7 +4,7 @@ import "./ProductCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 
-const ProductCard = ({ product }) => {
+const ProductCard = () => {
   const [productCardData, setProductCardData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

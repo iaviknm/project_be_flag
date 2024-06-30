@@ -20,14 +20,6 @@ const Hero = () => {
             <h1>{heroData.title}</h1>
 
             <p>{heroData.smallText}</p>
-
-            {/* <p>
-              Não criaste conta ou fizeste login? Clica{" "}
-              <Link href="/auth" style={{ color: "#440018" }}>
-                aqui
-              </Link>{" "}
-              para te registares ou fazer login
-            </p> */}
           </div>
         </div>
       </section>
